@@ -34,11 +34,11 @@ func promptOptions(b bill) {
 		if err != nil {
 			fmt.Println("The price must be a number.")
 			promptOptions(b)
+		} else {
+			b.addItem(name, p)
+			fmt.Println("Item added -", name, price)
+			promptOptions(b)
 		}
-		b.addItem(name, p)
-		fmt.Println("Item added -", name, price)
-		promptOptions(b)
-
 	case "t":
 		tip, _ := getInput("Enter tip amount ($): ", reader)
 
